@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MonitoriaMVC.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Senha</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Cliente cliente in Model)
+        {
+            <tr>
+                <td>@cliente.ID</td>
+                <td>@cliente.Nome</td>
+                <td>@cliente.Email</td>
+                <td>@cliente.Senha</td>
+                <td>
+                    <button class="btn btn-primary"><a asp-action="Editar" class="text-white" asp-route-id=@cliente.ID>Editar</a></button>
+                    <button class="btn btn-danger"><a asp-action="Deletar" class="text-white" asp-route-id=@cliente.ID>Deletar</a></button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
